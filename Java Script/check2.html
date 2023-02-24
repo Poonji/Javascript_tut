@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Validation DOM</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            background-color: aquamarine;
+            color: blue;
+            text-align: center;
+            text-shadow: 2px red 0 2px black 0;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+    <script>
+        var globe;
+        function Selection(form) {
+            var text = frm1.no1.value;
+            for (i = 2; i < 5; i++) {
+                for (j = 0; j < frm1.elements[i].length; j++) {
+                    if (frm1.elements[i][j].selected) {
+                        x = frm1.elements[i].options[j].value;
+                        text = text + "" + x;
+                        frm1.elements[5].value = text;
+                    }
+                }
+            }
+            globe = text;
+        }
+
+        function checkID(form) {
+            if (isNaN(frm1.no2.value) == true) {
+                alert("Please Enter only Number!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="header">Selection and display in textarea through Javascript</h1>
+
+    <table>
+        <form name="frm1" method="get()">
+            <tr>
+                <td>Your name:
+                <td><input type="text" name="no1" value=""></td>
+                </td>
+            </tr>
+            <tr>
+                <td>Roll no:
+                <td><input type="text" name="no2" value=""></td>
+                </td>
+            </tr>
+            <tr>
+                <td>Branch:
+                <td>
+                    <slect name="branch" onblur="selection(this.form)">
+                        <option value="B.Tech-CSE">B.Tech</option>
+                        <option value="B.Tech-IT">B.Tech IT</option>
+                        <option value="B.Tech-ME">B.Tech ME</option>
+                        <option value="B.Tech-EC">B.Tech EC</option>
+                    </slect>
+                </td>
+                <td>
+                    Semester:
+                <td><select name="sem" onblur="selection(this.form)">
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4rth">4rt</option>
+                    </select></td>
+                <td>Subject:
+                <td><select name="Subject" multiple onblur="selection(this.form)">
+                        <option value="Operating system">Operating system</option>
+                        <option value="AUTOMATA">AUTOMATA</option>
+                        <option value="MICROPROCESSOR">MICROPROCESSOR</option>
+                        <option value="PYTHON">PYTHON</option>
+                        <option value="DS">DS</option>
+                    </select></td>
+                </td>
+                </td>
+                </td>
+            </tr>
+            <tr><td>Selected Options are: 
+                <textarea name="comment" rows="10" cols="20"></textarea>
+            </td></tr>
+            <tr><td><input type="reset"></td></tr>
+            <tr><td><input type="button" value="OK" name="ok" onclick="checkID(this.form)"></td></tr>
+        </form>
+    </table>
+</body>
+
+</html>
